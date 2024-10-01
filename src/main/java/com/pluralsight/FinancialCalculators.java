@@ -6,7 +6,6 @@ public class FinancialCalculators {
     static Scanner myScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Please enter the number of the calculator you would like to use today?");
         int whichCalculator = promptForChoosingCalculator();
         if (whichCalculator == 1){
             mortgageCalculator();
@@ -20,8 +19,16 @@ public class FinancialCalculators {
     public static void mortgageCalculator(){
 
     }
-
+//  FinalValue = deposit(1 + interestRate)^ years
     public static void futureValueCalculator(){
+        double deposit = promptForDouble("Please enter your deposit amount: ");
+        double interestRate = promptForDouble("Please enter your interest rate: ");
+        int years = promptForInt("Please enter the number of years: ");
+
+        double FinalValue = deposit * Math.pow((1 + (interestRate/100)), years);
+        double totalInterest = FinalValue - deposit;
+        System.out.println("Interest accrued is " + totalInterest);
+        System.out.println("Your ending balance is " + FinalValue);
 
     }
 
